@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # --- Carregamento dos dados ---
-df = pd.read_csv("https://raw.githubusercontent.com/vqrca/dashboard_salarios_dados/refs/heads/main/dados-imersao-final.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/cristiamt/imersao_alura/refs/heads/main/df_final.csv")
 
 # --- Barra Lateral (Filtros) ---
 st.sidebar.header("🔍 Filtros")
@@ -42,7 +42,7 @@ df_filtrado = df[
 ]
 
 # --- Conteúdo Principal ---
-st.title("🎲 Dashboard de Análise de Salários na Área de Dados")
+st.title("🎲 CRIS O MAGO DOS DADOS -Dashboard de Dados")
 st.markdown("Explore os dados salariais na área de dados nos últimos anos. Utilize os filtros à esquerda para refinar sua análise.")
 
 # --- Métricas Principais (KPIs) ---
@@ -77,7 +77,7 @@ with col_graf1:
             x='usd',
             y='cargo',
             orientation='h',
-            title="Top 10 cargos por salário médio",
+            title="Top cargos por salário médio",
             labels={'usd': 'Média salarial anual (USD)', 'cargo': ''}
         )
         grafico_cargos.update_layout(title_x=0.1, yaxis={'categoryorder':'total ascending'})
@@ -91,7 +91,7 @@ with col_graf2:
             df_filtrado,
             x='usd',
             nbins=30,
-            title="Distribuição de salários anuais",
+            title="Salários anuais",
             labels={'usd': 'Faixa salarial (USD)', 'count': ''}
         )
         grafico_hist.update_layout(title_x=0.1)
@@ -109,7 +109,7 @@ with col_graf3:
             remoto_contagem,
             names='tipo_trabalho',
             values='quantidade',
-            title='Proporção dos tipos de trabalho',
+            title='Modalidade de trabalho',
             hole=0.5  
         )
         grafico_remoto.update_traces(textinfo='percent+label')
